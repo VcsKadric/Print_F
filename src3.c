@@ -63,3 +63,13 @@ char	*uitoa_base(t_ulli value, t_ulli base)
 	}
 	return (str);
 }
+
+size_t	ft_wstrlen(wchar_t *str)
+{
+  wchar_t *tmp;
+
+  tmp = str;
+  while(*tmp != L'\0')
+    tmp++;
+  return(tmp - str);
+}

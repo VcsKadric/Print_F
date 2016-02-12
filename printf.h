@@ -76,6 +76,7 @@ int				convert_o(va_list ap, t_flag *flg);
 int				convert_x(va_list ap, t_flag *flg);
 int				conv_x(va_list ap, t_flag *flg);
 int				conv_d(va_list ap);
+int				conv_s(va_list ap);
 int				print_prec(t_flag *flg, int nb);
 int				ft_strlen(const char *s);
 int				ft_atoi(const char *s);
@@ -85,7 +86,14 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 void			ft_putstr(char const *str);
 void			ft_putnbr(int nb);
 void			ft_putchar(char c);
+void			ft_putwchar(void *ptr, int size);
 char			*ft_strchr(const char *s, int c);
 int				ft_toupper(int c);
+int			ft_put_wide(wint_t c);
+int			ft_put_wide1(char str[4], wint_t c);
+int			ft_put_wide2(char str[4], wint_t c);
+int			ft_put_wide3(char str[4], wint_t c);
+size_t			ft_wstrlen(wchar_t *str);
+
 
 #endif

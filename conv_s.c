@@ -26,4 +26,10 @@ int		conv_s(va_list ap)
 		ft_putstr("(null)");
 		return (ft_strlen("(null)"));
 	}
+	while(i < ft_wstrlen(str))
+	  {
+	    ret = ret + ft_put_wide(str[i]);
+	    i++;
+	  }
+	return (ret);
 }

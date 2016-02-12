@@ -35,12 +35,12 @@ int		type_arg(char *str, int i, va_list ap, t_flag *flg)
 		return (conv_d(ap));
 	else	if (str[i] == 'X')
 		return (conv_x(ap, flg));
-/*	else	if (str[i] == 'S')
-		return (conv_s(ap, flg));
-	else	if (str[i] == 'U')
-		return (conv_u(ap, flg));
-	else	if (str[i] == 'O')
-	return (conv_o(ap, flg));*/
+	else	if (str[i] == 'S')
+		return (conv_s(ap));
+	//	else	if (str[i] == 'U')
+	//		return (conv_u(ap, flg));
+	//	else	if (str[i] == 'O')
+	//  return (conv_o(ap, flg));
 	else	if (str[i] == '%')
 	{
 		ft_putchar(str[i]);
