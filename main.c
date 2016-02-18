@@ -79,8 +79,9 @@ int		main(void)
   char *str = "bonjour";
  ft_printf("%s %d\n", str, 42);
  printf("%s %d\n", str, 42); */
-  ft_printf("%x %#x\n", 42, 42);
- printf("%x %#x\n", 42, 42);
+  char *str = "bonjour";
+  ft_printf("%p\n",str);
+ printf("%p\n",str);
    ft_printf("%x\n", 42);
  printf("%x\n", 42);
   // printf("%o\n", 999988888);

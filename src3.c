@@ -50,7 +50,7 @@ char	*uitoa_base(t_ulli value, t_ulli base)
 	{
 		tmp = tmp / base;
 		i++;
-	}
+	}	
 	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	str[i + 1] = '\0';

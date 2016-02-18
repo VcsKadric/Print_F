@@ -67,6 +67,7 @@ int				put_sign(int n);
 int				conv_hex(t_ulli nb);
 int				flag_conv_d(t_flag *flg, int tmp, int nb, long long int lnb);
 char			*uitoa_base(t_ulli n, t_ulli base);
+char			*itoa_base(int n, int base);
 int				convert_di(va_list *ap, t_flag *flg);
 int				convert_s(va_list *ap, t_flag *flg);
 int				convert_c(va_list *ap, t_flag *flg);
