@@ -53,7 +53,7 @@ int		adapt_flag(t_flag *flg, int i)
 	return (i);
 }
 
-int		ft_read_print(char *str, va_list ap)
+int		ft_read_print(char *str, va_list *ap)
 {
 	int		i;
 	int		ret;
@@ -87,7 +87,7 @@ int				ft_printf(const char *format, ...)
 	ret = 0;
 	va_start(ap, format);
 	str = ft_strdup(format);
-	ret = ft_read_print(str, ap);
+	ret = ft_read_print(str, &ap);
 	va_end(ap);
 	free(str);
 	return (ret);

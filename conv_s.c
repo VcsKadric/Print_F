@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int		conv_s(va_list ap)
+int		conv_s(va_list *ap)
 {
 	wchar_t *str;
 	int		ret;
@@ -20,7 +20,7 @@ int		conv_s(va_list ap)
 
 	i = 0;
 	ret = 0;
-	str = va_arg(ap, wchar_t *);
+	str = va_arg(*ap, wchar_t *);
 	if (!str)
 	{
 		ft_putstr("(null)");

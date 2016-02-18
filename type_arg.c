@@ -12,11 +12,8 @@
 
 #include "printf.h"
 
-int		type_arg(char *str, int i, va_list ap, t_flag *flg)
+int		type_arg(char *str, int i, va_list *ap, t_flag *flg)
 {
-/*	ft_putstr("str i = ");
-	write(1, &str[i], 1);
-	write(1, "\n", 1); */
 	if (str[i] == 'd' || str[i] == 'i')
 		return (convert_di(ap, flg));
 	else	if (str[i] == 's')
@@ -31,7 +28,7 @@ int		type_arg(char *str, int i, va_list ap, t_flag *flg)
 		return (convert_o(ap, flg));
 	else	if (str[i] == 'u')
 		return (convert_u(ap, flg));
-	else	if (str[i] == 'D')
+	else	if (str[i] == 'D' || (str[i] == 'd' && (flg->l || flg->ll)))
 		return (conv_d(ap));
 	else	if (str[i] == 'X')
 		return (conv_x(ap, flg));

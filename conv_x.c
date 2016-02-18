@@ -21,7 +21,7 @@ static	int	upper_x(t_flag *flg, unsigned long long nb, int tmp, int ret)
 	return (tmp + ret);
 }
 
-int			conv_x(va_list ap, t_flag *flg)
+int			conv_x(va_list *ap, t_flag *flg)
 {
 	char				*str;
 	unsigned long long	nb;
@@ -30,7 +30,7 @@ int			conv_x(va_list ap, t_flag *flg)
 
 	tmp = 0;
 	ret = 0;
-	nb = va_arg(ap, unsigned long long);
+	nb = va_arg(*ap, unsigned long long);
 	str = uitoa_base(nb, 16);
 	while (str[tmp])
 	{

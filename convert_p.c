@@ -12,13 +12,13 @@
 
 #include "printf.h"
 
-int		convert_p(va_list ap, t_flag *flg)
+int		convert_p(va_list *ap, t_flag *flg)
 {
 	char			*str;
 	unsigned long	nb;
 	int				ret;
 
-	nb = va_arg(ap, unsigned long);
+	nb = va_arg(*ap, unsigned long);
 	str = uitoa_base(nb, 16);
 	if (flg->nbr_len && !flg->less)
 		ret = put_nchar(flg, (ft_strlen(str) + 2));

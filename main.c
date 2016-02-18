@@ -22,7 +22,7 @@ int		main(void)
 	printf("\nret = %d\n\n", printf("{% %}"));
 	printf("-----------TEST_PERCENTS-------------\n"); 
 	printf("----------------END------------------\n\n");*/
-	printf("----------PRECISION_FOR_DIU----------\n\n");
+/*	printf("----------PRECISION_FOR_DIU----------\n\n");
 	printf("\nret = %d\n", ft_printf("%.4d", 42));
 	printf("\nret = %d\n\n", printf("%.4d", 42));
 	printf("\nret = %d\n", ft_printf("%.4d", 424242));
@@ -59,5 +59,30 @@ int		main(void)
 	printf("ret = %d\n\n", printf("%.4i", 42));
 	printf("ret = %d\n", ft_printf("%4.15i", 42));
 	printf("ret = %d\n\n", printf("%4.15i", 42));
-	return (0);
+*/
+/*  printf("ret = %d\n", ft_printf("%o", 42));
+  printf("ret = %d\n\n", printf("%o", 42));
+  printf("ret = %d\n",ft_printf("before %o after", 42));
+  printf("ret = %d\n\n",printf("before %o after", 42));
+  printf("ret = %d\n",ft_printf("%o %o %o %o",1, 100, 999, 999988888));
+  printf("ret = %d\n\n",printf("%o %o %o %o",1, 100, 999, 999988888));
+  //  ft_printf("%o\n", 999988888);
+  ft_printf("%o\n", 1);
+  printf("%o\n", 1);
+  ft_printf("%o\n", 100);
+  printf("%o\n", 100);
+  ft_printf("%o\n", 999);
+  printf("%o\n", 999);
+
+  ft_printf("%o %o\n",100, 999);
+  printf("%o %o\n",100, 999);
+  char *str = "bonjour";
+ ft_printf("%s %d\n", str, 42);
+ printf("%s %d\n", str, 42); */
+  ft_printf("%x %#x\n", 42, 42);
+ printf("%x %#x\n", 42, 42);
+   ft_printf("%x\n", 42);
+ printf("%x\n", 42);
+  // printf("%o\n", 999988888);
+  return (0);
 }

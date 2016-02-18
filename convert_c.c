@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 #include "printf.h"
 
-int		convert_c(va_list ap, t_flag *flg)
+int		convert_c(va_list *ap, t_flag *flg)
 {
 	char	c;
 
-	c = va_arg(ap, int);
+	c = va_arg(*ap, int);
 	if (flg->isneg)
 	  return (1);
 	ft_putchar(c);

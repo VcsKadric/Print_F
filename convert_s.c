@@ -12,13 +12,13 @@
 
 #include "printf.h"
 
-int		convert_s(va_list ap, t_flag *flg)
+int		convert_s(va_list *ap, t_flag *flg)
 {
 	char	*str;
 	int		ret;
 
 	ret = 0;
-	str = va_arg(ap, char *);
+	str = va_arg(*ap, char *);
 	if (str == NULL || !str)
 	{
 		ft_putstr("(null)");

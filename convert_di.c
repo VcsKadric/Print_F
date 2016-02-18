@@ -89,7 +89,7 @@ int			flag_conv_d(t_flag *flg, int tmp, int nb, long long int lnb)
 	return (ret);
 }
 
-int			convert_di(va_list ap, t_flag *flg)
+int			convert_di(va_list *ap, t_flag *flg)
 {
 	int				ret;
 	int				nb;
@@ -100,9 +100,9 @@ int			convert_di(va_list ap, t_flag *flg)
 	nb = 0;
 	lnb = 0;
 	if (flg->l || flg->ll || flg->j || flg->z)
-		lnb = va_arg(ap, long long int);
+		lnb = va_arg(*ap, long long int);
 	else
-		nb = va_arg(ap, int);
+		nb = va_arg(*ap, int);
 
 	flg = get_sign(nb, lnb, flg);
 	if (nb)

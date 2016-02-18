@@ -1,6 +1,6 @@
 #include "printf.h"
 
-static	int	ft_put_wide3(char str[4], wint_t c)
+	int	ft_put_wide3(char str[4], wint_t c)
 {
 	str[0] = (((c & 0x1c0000) >> 18) + 0xF0);
 	str[1] = (((c & 0x03F000) >> 12) + 0x80);
@@ -10,7 +10,7 @@ static	int	ft_put_wide3(char str[4], wint_t c)
 	return (4);
 }
 
-static	int	ft_put_wide2(char str[4], wint_t c)
+	int	ft_put_wide2(char str[4], wint_t c)
 {
 	str[0] = (((c & 0xF000) >> 12) + 0xE0);
 	str[1] = (((c & 0x0Fc0) >> 6) + 0x80);
@@ -19,7 +19,7 @@ static	int	ft_put_wide2(char str[4], wint_t c)
 	return (3);
 }
 
-static	int	ft_put_wide1(char str[4], wint_t c)
+	int	ft_put_wide1(char str[4], wint_t c)
 {
 	str[0] = (((c & 0x07c0) >> 6) + 0xc0);
 	str[1] = ((c & 0x003F) + 0x80);
@@ -32,7 +32,7 @@ int	ft_put_wide(wint_t c)
   	char	str[4];
 	int		ret;
 
-	rt = 1;
+	ret = 1;
 	if (c <= 0x7F)
 		ft_putwchar(&c, 1);
 	else	if (c <= 0x7FF)

@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int			convert_x(va_list ap, t_flag *flg)
+int			convert_x(va_list *ap, t_flag *flg)
 {
 	char				*str;
 	t_ulli				nb;
@@ -20,11 +20,20 @@ int			convert_x(va_list ap, t_flag *flg)
 	int					tmp;
 
 	ret = 0;
-	nb = va_arg(ap, t_ulli);
+	nb = va_arg(*ap, t_ulli);
 	str = uitoa_base(nb, 16);
 	tmp = ft_strlen(str);
 	if (flg->diese == 1 && nb != 0)
 		ft_putstr("0x");
+	ft_putstr("nbr = ");
+	ft_putnbr(flg->nbr);
+	write(1, "//", 2);
+	ft_putstr("prec = ");
+	ft_putnbr(flg->prec);
+	write(1, "//", 2);
+	ft_putstr("prec_nb = ");
+	ft_putnbr(flg->prec_nb);
+	write(1, "//", 2);
 	if (flg->nbr)
 		ret += put_nchar(flg, tmp);
 	if (flg->prec && tmp < flg->prec_nb)

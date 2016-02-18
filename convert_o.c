@@ -12,15 +12,16 @@
 
 #include "printf.h"
 
-int			convert_o(va_list ap, t_flag *flg)
+int			convert_o(va_list *ap, t_flag *flg)
 {
 	char			*str;
-	long long int	nb;
+	//	long long int	nb;
+	int	nb;
 	int				tmp;
 	int				ret;
 
 	ret = 0;
-	nb = va_arg(ap, long long int);
+	nb = va_arg(*ap,/*long long int*/ int);
 	str = uitoa_base(nb, 8);
 	if (flg->diese && nb != 0)
 		ft_putchar('0');

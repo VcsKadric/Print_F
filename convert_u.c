@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int			convert_u(va_list ap, t_flag *flg)
+int			convert_u(va_list *ap, t_flag *flg)
 {
 	char				*str;
 	unsigned long int	nb;
@@ -20,7 +20,7 @@ int			convert_u(va_list ap, t_flag *flg)
 	int					ret;
 
 	ret = 0;
-	nb = va_arg(ap, unsigned long int);
+	nb = va_arg(*ap, unsigned long int);
 	str = uitoa_base(nb, 10);
 	tmp = ft_strlen(str);
 	if (flg->nbr)
