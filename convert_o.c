@@ -15,7 +15,7 @@
 int			convert_o(va_list *ap, t_flag *flg)
 {
 	char			*str;
-	//	long long int	nb;
+	//	long long int	nb2;
 	int	nb;
 	int				tmp;
 	int				ret;
