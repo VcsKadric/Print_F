@@ -20,7 +20,7 @@ int			convert_x(va_list *ap, t_flag *flg)
 	int					tmp;
 
 	ret = 0;
-	nb = va_arg(*ap, t_ulli);
+	nb = va_arg(*ap, int);
 	str = itoa_base(nb, 16);
 	tmp = ft_strlen(str);
 	if (flg->diese == 1 && nb != 0)

@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-static	int	upper_x(t_flag *flg, unsigned long long nb, int tmp, int ret)
+static	int	upper_x(t_flag *flg, int nb, int tmp, int ret)
 {
 	if (flg->diese & nb)
 		return (tmp + ret + 2);
@@ -24,14 +24,14 @@ static	int	upper_x(t_flag *flg, unsigned long long nb, int tmp, int ret)
 int			conv_x(va_list *ap, t_flag *flg)
 {
 	char				*str;
-	unsigned long long	nb;
+	int	nb;
 	int					ret;
 	int					tmp;
 
 	tmp = 0;
 	ret = 0;
-	nb = va_arg(*ap, unsigned long long);
-	str = uitoa_base(nb, 16);
+	nb = va_arg(*ap, int);
+	str = itoa_base(nb, 16);
 	while (str[tmp])
 	{
 		str[tmp] = ft_toupper(str[tmp]);
