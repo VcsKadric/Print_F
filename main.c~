@@ -90,8 +90,8 @@ int		main(void)
   printf("ret = %d\n", printf("%c", 0));
   printf("ret = %d\n",ft_printf("%.c", 0));
   printf("ret = %d\n", printf("%.c", 0));
-  printf("ret = %d\n", ft_printf("%.4s", "42 is the answer"));
-  printf("ret = %d\n", printf("%.4s", "42 is the answer"));
+  ft_printf("%.4s\n", "42 is the answer");
+  printf("%.4s\n", "42 is the answer");
   printf("ret = %d\n", ft_printf("%#X", 42));
   printf("ret = %d\n", printf("%#X", 42));
   printf("ret = %d\n", ft_printf("%+C", 0));

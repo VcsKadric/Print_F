@@ -83,7 +83,7 @@ int			flag_conv_d(t_flag *flg, int tmp, int nb, long long int lnb)
 	if (!flg->less && !flg->zero)
 		if (flg->plus || nb < 0 || lnb < 0)
 			ret += (flg->isneg == 1 ? put_sign(0) : put_sign(1));
-	if (flg->prec && tmp < flg->prec_nb)
+	if (flg->prec && tmp < flg->prec_nb)// && (nb || lnb)) // ajout  && nb || lnb modif <= -> <
 		ret += print_prec(flg, tmp);
 	limit_int(nb, lnb, flg);
 	return (ret);

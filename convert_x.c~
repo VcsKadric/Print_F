@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_s.c                                        :+:      :+:    :+:   */
+/*   convert_x.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 08:14:12 by cdebord           #+#    #+#             */
-/*   Updated: 2016/01/30 08:20:01 by cdebord          ###   ########.fr       */
+/*   Created: 2016/01/30 09:53:22 by cdebord           #+#    #+#             */
+/*   Updated: 2016/02/01 16:37:03 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		convert_s(va_list *ap, t_flag *flg)
+int			convert_x(va_list *ap, t_flag *flg)
 {
-	char	*str;
-	int		ret;
+	char				*str;
+	t_ui				nb;
+	int					ret;
+	int					tmp;
 
 	ret = 0;
-	str = va_arg(*ap, char *);
-	if (str == NULL || !str)
-	{
-		ft_putstr("(null)");
-		return (ft_strlen("(null)"));
-	}
-	if (flg->nbr && !flg->less)
-		ret += put_nchar(flg, ft_strlen(str));
-	if (flg->prec && flg->prec_nb)
-	    return(ret + put_nstr(str, flg->prec_nb));
-	ft_putstr(str);
-	if (flg->space)
-		return (ft_strlen(str));
+	nb = va_arg(*ap, int);
+	str = itoa_base(nb, 16);
+	tmp = ft_strlen(str);
+	if (flg->diese == 1 && nb != 0)
+		ft_putstr("0x");
 	if (flg->nbr)
-		return (ft_strlen(str) + ret);
-	return (ft_strlen(str));
+		ret += put_nchar(flg, tmp);
+	if (flg->prec && tmp < flg->prec_nb)
+		ret += print_prec(flg, tmp);
+	ft_putstr(str);
+	if (flg->diese && nb == 0)
+		return (1);
+	if (flg->diese && nb)
+		return (tmp + ret + 2);
+	return (tmp + ret);
 }

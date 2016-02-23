@@ -27,11 +27,16 @@ int			conv_x(va_list *ap, t_flag *flg)
 	int		nb;
 	int		ret;
 	int		tmp;
+	t_ulli uinb;
 
 	tmp = 0;
 	ret = 0;
 	nb = va_arg(*ap, int);
-	str = itoa_base(nb, 16);
+	uinb = va_arg(*ap, t_ulli);
+	  if (nb >= 0)
+	    str = itoa_base(nb, 16);
+	  else
+	    str = uitoa_base(uinb, 16);
 	while (str[tmp])
 	{
 		str[tmp] = ft_toupper(str[tmp]);

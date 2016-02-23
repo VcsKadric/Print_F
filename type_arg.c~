@@ -18,7 +18,7 @@ int		type_arg(char *str, int i, va_list *ap, t_flag *flg)
 		return (convert_di(ap, flg));
 	else	if (str[i] == 's')
 		return (convert_s(ap, flg));
-	else	if (str[i] == 'c' || str[i] == 'C')
+	else	if (str[i] == 'c')
 		return (convert_c(ap, flg));
 	else	if (str[i] == 'p')
 		return (convert_p(ap, flg));

@@ -21,7 +21,7 @@
 # define CONV "sSpdDioOuUxXcC"
 # define NUM "0123456789"
 
-typedef unsigned  int	t_ulli;
+typedef unsigned  int	t_ui;
 
 typedef struct	s_flag
 {
@@ -63,9 +63,9 @@ t_flag			*check_number(t_flag *flg, char *str, int i);
 t_flag			*get_precision(t_flag *flg, char *str, int i);
 t_flag			*get_sign(int i, long long int j, t_flag *flg);
 int				put_sign(int n);
-int				conv_hex(t_ulli nb);
+int				conv_hex(t_ui nb);
 int				flag_conv_d(t_flag *flg, int tmp, int nb, long long int lnb);
-char			*uitoa_base(t_ulli n, t_ulli base);
+char			*uitoa_base(t_ui n, t_ui base);
 char			*itoa_base(int n, int base);
 int				convert_di(va_list *ap, t_flag *flg);
 int				convert_s(va_list *ap, t_flag *flg);
