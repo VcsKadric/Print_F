@@ -15,7 +15,7 @@
 int		convert_p(va_list *ap, t_flag *flg)
 {
 	char			*str;
-	unsigned long	nb;
+	unsigned long long	nb;
 	int				ret;
 
 	nb = va_arg(*ap, unsigned long);

@@ -2,8 +2,9 @@
 
 int		main(void)
 {
-
-  /*	printf("-----------TEST_PERCENTS-------------\n");
+  printf("%.d", 0);
+  /*
+  	printf("-----------TEST_PERCENTS-------------\n");
 	printf("\nret = %d\n", ft_printf("%%"));
 	printf("\nret = %d\n\n", printf("%%"));
 	printf("\nret = %d\n", ft_printf("aa%%bb"));
@@ -85,7 +86,7 @@ int		main(void)
  ft_printf("%o %o\n", 42, 42);
  printf("%o %o\n", 42, 42);
   ft_printf("%o %#.1o\n", 42, 42);
-  printf("%o %#.1o\n", 42, 42); */
+  printf("%o %#.1o\n", 42, 42); 
   printf("ret = %d\n",ft_printf("%c", 0));
   printf("ret = %d\n", printf("%c", 0));
   printf("ret = %d\n",ft_printf("%.c", 0));
@@ -97,9 +98,12 @@ int		main(void)
   printf("ret = %d\n", ft_printf("%+C", 0));
   printf("ret = %d\n", printf("%+C", 0));
   printf("ret = %d\n", ft_printf("%X, %X", 0, UINT_MAX));
-  printf("ret = %d\n", printf("%X, %X", 0, UINT_MAX));
+  printf("ret = %d\n", printf("%X, %X", 0, UINT_MAX));*/
   // printf("ret = %d\n", ft_printf("%hhd - %hhd", SHRT_MAX - 42, SHRT_MAX - 4200));
   // printf("ret = %d\n", printf("%hhd - %hhd", SHRT_MAX - 42, SHRT_MAX - 4200));
   // printf("%o\n", 999988888);
+  int	i = 14;
+  printf("ret = %d\n",ft_printf("%p", &i));
+  printf("ret = %d\n", printf("%p", &i));
   return (0);
 }

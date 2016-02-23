@@ -30,7 +30,7 @@ int		print_prec(t_flag *flg, int nb)
 	return (ret);
 }
 
-int		conv_hex(t_ui nb)
+int		conv_hex(t_ulli nb)
 {
 	if (nb >= 10)
 		return (nb - 10 + 'a');
@@ -38,11 +38,11 @@ int		conv_hex(t_ui nb)
 		return (nb + '0');
 }
 
-char	*uitoa_base(t_ui value, t_ui base)
+char	*uitoa_base(t_ulli value, t_ulli base)
 {
 	int					i;
 	char				*str;
-	t_ui				tmp;
+	t_ulli				tmp;
 	
 	i = 0;
 	tmp = value;

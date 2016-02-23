@@ -26,7 +26,7 @@ int		type_arg(char *str, int i, va_list *ap, t_flag *flg)
 		return (convert_x(ap, flg));
 	else	if (str[i] == 'o' || str[i] == 'O')
 		return (convert_o(ap, flg));
-	else	if (str[i] == 'u')
+	else	if (str[i] == 'u' || str[i] == 'U')
 		return (convert_u(ap, flg));
 	else	if (str[i] == 'D' || (str[i] == 'd' && (flg->l || flg->ll)))
 		return (conv_d(ap));

@@ -47,7 +47,7 @@ int		adapt_flag(t_flag *flg, int i)
 		flg->ll + flg->diese + flg->less + flg->plus + flg->zero +	\
 	  flg->space + flg->nbr_len;// + flg->prec; // ajout flg->prec
 	if (flg->nbr2)
-		flg->flag += 1 + flg->nbr2;
+		flg->flag +=  1 + flg->nbr2;
 	if (flg->flag)
 		i += flg->flag;
 	return (i);

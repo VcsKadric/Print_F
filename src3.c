@@ -74,8 +74,10 @@ size_t	ft_wstrlen(wchar_t *str)
   return(tmp - str);
 }
 
-/*int main()
+int main()
 {
-  uitoa_base(UINT_MAX, 16);
+  int	i = 14;
+  uitoa_base(&i, 16);
+  printf("%p\n", &i);
 }
-*/
+
