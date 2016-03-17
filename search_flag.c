@@ -15,11 +15,15 @@
 t_flag			*get_precision(t_flag *flg, char *str, int i)
 {
 	int		tmp;
-
 	tmp = 0;
-	while (!(ft_strchr(CONV, str[i])) && str[i])//(!(check_char(str, CONV, i)))
+		if (str[i] == '.') // ajout
+		  {
+		    flg->prec = 1;
+		    return (flg); // ajout 
+		  }
+	while (!(ft_strchr(CONV, str[i])) && str[i])
 	{
-		if (str[i - 1] == '.')  // ajout de else
+	  if (str[i - 1] == '.')
 		{
 			tmp = i;
 			flg->prec = 1;
@@ -27,7 +31,7 @@ t_flag			*get_precision(t_flag *flg, char *str, int i)
 		}
 		i++;
 	}
-	while (ft_strchr(NUM, str[i]) && str[i])//(check_char(str, NUM, i))
+	while (ft_strchr(NUM, str[i]) && str[i])
 	{
 		i++;		
 		flg->nbr2++;
@@ -42,20 +46,20 @@ t_flag			*check_flag2(t_flag *flg, char *str, int i)
 	int	tmp;
 
 	tmp = i;
-	while (!(ft_strchr(CONV, str[i])) && str[i])//(!(check_char(str, CONV, i)))
+	while (!(ft_strchr(CONV, str[i])) && str[i])
 	{
 		if (str[i] == 'j')
-			flg->j = 1;
+			flg->j++;
 		if (str[i] == 'z')
-			flg->z = 1;
+			flg->z++;
 		if (str[i] == 'l' && str[i - 1] != 'l')
-			flg->l = 1;
+			flg->l++;
 		if (str[i] == 'l' && str[i - 1] == 'l')
-			flg->ll = 1;
+			flg->ll++;
 		if (str[i] == 'h' && str[i - 1] != 'h')
-			flg->h = 1;
+			flg->h++;
 		if (str[i] == 'h' && str[i - 1] == 'h')
-			flg->hh = 1;
+			flg->hh++;
 		i++;
 	}
 	flg = get_precision(flg, str, tmp);
@@ -69,9 +73,9 @@ t_flag			*check_number(t_flag *flg, char *str, int i)
 
 	tmp = 0;
 	tmpi = i;
-	while (!(ft_strchr(CONV, str[i])) && str[i] != '.' && str[i])//(!(check_char(str, CONV, i)) && str[i] != '.')
+	while (!(ft_strchr(CONV, str[i])) && str[i] != '.' && str[i])
 	{
-		if (ft_strchr(NUM, str[i])) //(check_char(str, NUM, i))
+		if (ft_strchr(NUM, str[i]))
 		{
 			tmp = i;
 			break ;
@@ -80,7 +84,7 @@ t_flag			*check_number(t_flag *flg, char *str, int i)
 	}
 	if (flg->zero == 1)
 		flg->nbr_len = -1;
-	while (ft_strchr(NUM, str[i]) && str[i]) //(check_char(str, NUM, i))
+	while (ft_strchr(NUM, str[i]) && str[i])
 	{
 		flg->nbr_len++;
 		i++;
@@ -96,29 +100,20 @@ t_flag			*check_flag(t_flag *flg, char *str, int i)
 	int		tmp;
 
 	tmp = i;
-
-//	ft_putstr("dans check_flag i = ");
-//	ft_putnbr(i);
-
-	while (!ft_strchr(CONV, str[i]) && str[i])// && (ft_strchr(t2, str[i])) && str[i])//(check_char(str, CONV, i)) && str[i])
+	while (!ft_strchr(CONV, str[i]) && str[i])
 	{
 		if (str[i] == '#')
-			flg->diese = 1;
+			flg->diese++;
 		if (str[i] == '+')
-			flg->plus = 1;
+			flg->plus++;
 		if (str[i] == '-')
-			flg->less = 1;
+			flg->less++;
 		if (str[i] == ' ')
-			flg->space = 1;
-		if (str[i] == '0' && !ft_strchr(NUM, str[i - 1]))//(check_char(str, NUM, (i - 1))))
-			flg->zero = 1;
+			flg->space++;
+		if (str[i] == '0' && !ft_strchr(NUM, str[i - 1]))
+			flg->zero++;
 		i++;
 	}
-
-//	ft_putstr("sorite check_flag tmp = ");
-//	ft_putnbr(tmp);
-//	write(1, "\n", 1);
-
 	flg = (check_number(flg, str, tmp));
 	return (flg);
 }

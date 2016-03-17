@@ -26,7 +26,7 @@ int		convert_s(va_list *ap, t_flag *flg)
 	}
 	if (flg->nbr && !flg->less)
 		ret += put_nchar(flg, ft_strlen(str));
-	if (flg->prec && flg->prec_nb)
+	if (flg->prec && flg->prec_nb) 
 	    return(ret + put_nstr(str, flg->prec_nb));
 	ft_putstr(str);
 	if (flg->space)

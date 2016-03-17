@@ -15,11 +15,11 @@
 int		convert_p(va_list *ap, t_flag *flg)
 {
 	char			*str;
-	unsigned long long	nb;
+	unsigned long		nb;
 	int				ret;
 
 	nb = va_arg(*ap, unsigned long);
-	str = uitoa_base(nb, 16);
+	str = itoa_hex(nb);
 	if (flg->nbr_len && !flg->less)
 		ret = put_nchar(flg, (ft_strlen(str) + 2));
 	ft_putstr("0x");

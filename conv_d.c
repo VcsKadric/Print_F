@@ -5,8 +5,8 @@ int		conv_d(va_list *ap)
 	long int	d;
 	char		*str;
 
-	d = va_arg(*ap, long long int);
-	str = uitoa_base(d, 10);
+	d = va_arg(*ap, long int);
+	str = ft_itoa(d);
 	ft_putstr(str);
 	return (ft_strlen(str));
 }

@@ -30,36 +30,31 @@ int		print_prec(t_flag *flg, int nb)
 	return (ret);
 }
 
-int		conv_hex(t_ulli nb)
-{
-	if (nb >= 10)
-		return (nb - 10 + 'a');
-	else
-		return (nb + '0');
-}
 
-char	*uitoa_base(t_ulli value, t_ulli base)
+char	*uitoa(t_ulli value)
 {
-	int					i;
-	char				*str;
-	t_ulli				tmp;
-	
-	i = 0;
-	tmp = value;
-	while (tmp >= base)
+	char		*str;
+	int		n;
+	t_ulli		nb;
+
+	nb = value;
+	n = 0;
+	while (nb >= 10)
 	{
-		tmp = tmp / base;
-		i++;
-	}	
-	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
-		return (NULL);
-	str[i + 1] = '\0';
-	while (i >= 0)
+		nb /= 10;
+		n++;
+	}
+	str = (char *)malloc(sizeof(str) * (n + 1));
+	if (str)
 	{
-		tmp = value % base;
-		str[i] = conv_hex(tmp);
-		value /= base;
-		i--;
+		str[n + 1] = '\0';
+		while (n >= 0)
+		{
+			nb = value % 10;
+			str[n] = '0' + nb;
+			value = value / 10;
+			n--;
+		}
 	}
 	return (str);
 }
@@ -74,10 +69,43 @@ size_t	ft_wstrlen(wchar_t *str)
   return(tmp - str);
 }
 
-int main()
+int		ft_nb_count(long int n, int i)
 {
-  int	i = 14;
-  uitoa_base(&i, 16);
-  printf("%p\n", &i);
+	while (n > 9 || n < 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
+
+char			*ft_itoa(long int n)
+{
+	char		*nbstr;
+	char		*nbcut;
+	int			nblen;
+	long int	nb;
+	int			i;
+
+	nblen = (n < 0) ? 2 : 1;
+	nb = n;
+	i = ft_nb_count(n, nblen);
+	nbcut = ft_strnew(i + 1);
+	while (i > 0)
+	{
+		if (n >= 0)
+			nbcut[i - 1] = ((char)((nb % 10) + 48));
+		if (n < 0 && i >= 2)
+			nbcut[i - 2] = ((char)(48 - (nb % 10)));
+		i--;
+		nb /= 10;
+	}
+	if (n < 0)
+	  nbcut[i] = '-';
+	nbstr = ft_strnew(ft_nb_count(n, nblen) + 1);
+	ft_strcpy(nbstr, nbcut);
+	free(nbcut);
+	return (nbstr);
+}
+
 

@@ -21,7 +21,7 @@
 # define CONV "sSpdDioOuUxXcC"
 # define NUM "0123456789"
 
-typedef unsigned  int	t_ulli;
+typedef unsigned long long  int	t_ulli;
 
 typedef struct	s_flag
 {
@@ -45,10 +45,11 @@ typedef struct	s_flag
 	int			isneg;
 }				t_flag;
 
+int			spec_prec(t_flag *flg, va_list *ap);
 int				ft_printf(const char *format, ...);
 t_flag			*init_struct(char *str, int i);
 int				ft_read_print(char *str, va_list *ap);
-int				type_arg(char *str, int i, va_list *ap, t_flag *flag);
+int				type_arg(char *str, int *xi, va_list *ap, t_flag *flag);
 int				ret_putchar(char c);
 int				put_nchar(t_flag *flg, int n);
 int				put_nstr(char *str, unsigned int n);
@@ -63,10 +64,14 @@ t_flag			*check_number(t_flag *flg, char *str, int i);
 t_flag			*get_precision(t_flag *flg, char *str, int i);
 t_flag			*get_sign(int i, long long int j, t_flag *flg);
 int				put_sign(int n);
-int				conv_hex(t_ulli nb);
 int				flag_conv_d(t_flag *flg, int tmp, int nb, long long int lnb);
-char			*uitoa_base(t_ulli n, t_ulli base);
-char			*itoa_base(int n, int base);
+char			*ft_strcpy(char *dst, const char *src);
+char			*ft_strnew(size_t size);
+char			*itoa_hex(t_ulli value);
+char			*itoa_oct(t_ulli value);
+char			*uitoa(t_ulli value);
+char			*ft_itoa(long int n);
+int			ft_nb_count(long int n, int i);
 int				convert_di(va_list *ap, t_flag *flg);
 int				convert_s(va_list *ap, t_flag *flg);
 int				convert_c(va_list *ap, t_flag *flg);
@@ -77,11 +82,13 @@ int				convert_x(va_list *ap, t_flag *flg);
 int				conv_x(va_list *ap, t_flag *flg);
 int				conv_d(va_list *ap);
 int				conv_s(va_list *ap);
+int				conv_o(va_list *ap, t_flag *flg);
+int				conv_u(va_list *ap, t_flag *flg);
+int				conv_c(va_list *ap, t_flag *flg);
 int				print_prec(t_flag *flg, int nb);
 int				ft_strlen(const char *s);
 int				ft_atoi(const char *s);
 char			*ft_strdup(const char *s1);
-char			*ft_itoa(int n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 void			ft_putstr(char const *str);
 void			ft_putnbr(int nb);

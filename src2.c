@@ -54,6 +54,24 @@ int		long_nbr_len(long long int nb)
 
 void		put_long_nb(long long nb)
 {
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		if (nb == (-9223372036854775807 - 1))
+		{
+			ft_putstr("9223372036854775808");
+			return ;
+		}
+		nb = -nb;
+	}
+	if (nb < 10)
+		ft_putchar(48 + nb);
+	else
+	{
+		put_long_nb(nb / 10);
+		put_long_nb(nb % 10);
+	}
+  /*
 	if (nb == -9223372036854775807 - 1)
 	{
 		ft_putstr("-9223372036854775808");
@@ -67,4 +85,5 @@ void		put_long_nb(long long nb)
 	while(nb >= 10)
 		put_long_nb(nb / 10);
 	ft_putchar(nb % 10 + '0');
+*/
 }

@@ -28,8 +28,8 @@ SRC = ft_printf.c search_flag.c src.c src2.c src3.c type_arg.c \
 conv_d.c conv_x.c convert_di.c convert_c.c convert_o.c \
 convert_p.c convert_s.c convert_u.c convert_x.c ft_putnbr.c \
 ft_putstr.c ft_atoi.c ft_strdup.c ft_strsub.c ft_strchr.c \
-ft_strlen.c ft_putchar.c ft_itoa.c ft_toupper.c conv_s.c \
-ft_putwide.c itoa_base.c
+ft_strlen.c ft_putchar.c  ft_toupper.c conv_s.c \
+ft_putwide.c src4.c itoa_hex.c itoa_oct.c spec_prec.c
 
 OBJ = $(SRC:.c=.o)
 

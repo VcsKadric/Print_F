@@ -69,7 +69,7 @@ int			flag_conv_d(t_flag *flg, int tmp, int nb, long long int lnb)
 	int		ret;
 
 	ret = 0;
-	if (flg->less && !flg->prec)
+	if (flg->less && !flg->prec) 
 	{
 		if (lnb)
 			put_long_nb(lnb);
@@ -99,15 +99,19 @@ int			convert_di(va_list *ap, t_flag *flg)
 	ret = 0;
 	nb = 0;
 	lnb = 0;
+	tmp = 0;
 	if (flg->l || flg->ll || flg->j || flg->z)
 		lnb = va_arg(*ap, long long int);
 	else
-		nb = va_arg(*ap, int);
-
+	  nb = va_arg(*ap, int);
+	if (flg->hh) // test
+	  nb = (char)nb;// test
+	//	if (flg->prec && (nb == 0 && lnb == 0)) // ajout
+	//	    return (ret); // ajout
 	flg = get_sign(nb, lnb, flg);
 	if (nb)
 		tmp = nbr_len(nb);
-	else
+	else if (!nb)
 		tmp = long_nbr_len(lnb);
 	ret = flag_conv_d(flg, tmp, nb, lnb);
 	return (ret + tmp); 

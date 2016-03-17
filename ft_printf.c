@@ -69,10 +69,10 @@ int		ft_read_print(char *str, va_list *ap)
 			flag = init_struct(str, i);
 			if (str[i] != '%')
 				i = adapt_flag(flag, i);
-			ret = ret + type_arg(str, i, ap, flag);
+			ret = ret + type_arg(str, &i, ap, flag);
 		}
 		else
-			ret += 1 + ret_putchar(str[i]);
+		  ret += 1 + ret_putchar(str[i]);
 		i++;
 	}
 	return (ret);

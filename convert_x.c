@@ -21,7 +21,9 @@ int			convert_x(va_list *ap, t_flag *flg)
 
 	ret = 0;
 	nb = va_arg(*ap, t_ulli);
-	str = uitoa_base(nb, 16);
+	if (flg->hh)
+	  nb = (unsigned char)nb;
+	str = itoa_hex(nb);
 	tmp = ft_strlen(str);
 	if (flg->diese == 1 && nb != 0)
 		ft_putstr("0x");
